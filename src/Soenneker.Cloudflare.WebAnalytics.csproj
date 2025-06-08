@@ -42,12 +42,6 @@
     </ItemGroup>
 
     <ItemGroup>
-        <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="9.0.5" />
-        <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="9.0.5" />
-        <PackageReference Include="Soenneker.Cloudflare.Utils.Client" Version="3.0.66" />
-    </ItemGroup>
-
-    <ItemGroup>
-        <ProjectReference Include="..\..\soenneker.cloudflare.speed\src\Soenneker.Cloudflare.Speed.csproj" />
+        <PackageReference Include="Soenneker.Cloudflare.Utils.Client" Version="3.0.68" />
     </ItemGroup>
 </Project>

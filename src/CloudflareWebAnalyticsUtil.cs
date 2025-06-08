@@ -25,19 +25,19 @@ public sealed class CloudflareWebAnalyticsUtil : ICloudflareWebAnalyticsUtil
         _logger = logger;
     }
 
-    /// <summary>
-    /// Enables Real User Monitoring (RUM) for a specific zone
-    /// </summary>
-    /// <param name="zoneId">The ID of the zone to enable RUM for</param>
-    /// <returns>A task representing the asynchronous operation</returns>
     public async ValueTask EnableRum(string zoneId, CancellationToken cancellationToken = default)
     {
         _logger.LogInformation("Enabling RUM for zone {ZoneId}", zoneId);
         CloudflareOpenApiClient client = await _client.Get(cancellationToken).NoSync();
         try
         {
-            var requestBody = new Zones_zone_settings_single_request();
-            requestBody.AdditionalData["value"] = "on";
+            var requestBody = new Zones_zone_settings_single_request
+            {
+                AdditionalData =
+                {
+                    ["value"] = "on"
+                }
+            };
             await client.Zones[zoneId].Settings["rum"].PatchAsync(requestBody, cancellationToken: cancellationToken).NoSync();
             _logger.LogInformation("Successfully enabled RUM for zone {ZoneId}", zoneId);
         }
@@ -48,19 +48,19 @@ public sealed class CloudflareWebAnalyticsUtil : ICloudflareWebAnalyticsUtil
         }
     }
 
-    /// <summary>
-    /// Disables Real User Monitoring (RUM) for a specific zone
-    /// </summary>
-    /// <param name="zoneId">The ID of the zone to disable RUM for</param>
-    /// <returns>A task representing the asynchronous operation</returns>
     public async ValueTask DisableRum(string zoneId, CancellationToken cancellationToken = default)
     {
         _logger.LogInformation("Disabling RUM for zone {ZoneId}", zoneId);
         CloudflareOpenApiClient client = await _client.Get(cancellationToken).NoSync();
         try
         {
-            var requestBody = new Zones_zone_settings_single_request();
-            requestBody.AdditionalData["value"] = "off";
+            var requestBody = new Zones_zone_settings_single_request
+            {
+                AdditionalData =
+                {
+                    ["value"] = "off"
+                }
+            };
             await client.Zones[zoneId].Settings["rum"].PatchAsync(requestBody, cancellationToken: cancellationToken).NoSync();
             _logger.LogInformation("Successfully disabled RUM for zone {ZoneId}", zoneId);
         }
