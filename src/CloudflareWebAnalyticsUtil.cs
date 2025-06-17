@@ -17,9 +17,7 @@ public sealed class CloudflareWebAnalyticsUtil : ICloudflareWebAnalyticsUtil
     private readonly ICloudflareClientUtil _client;
     private readonly ILogger<CloudflareWebAnalyticsUtil> _logger;
 
-    public CloudflareWebAnalyticsUtil(
-        ICloudflareClientUtil client,
-        ILogger<CloudflareWebAnalyticsUtil> logger)
+    public CloudflareWebAnalyticsUtil(ICloudflareClientUtil client, ILogger<CloudflareWebAnalyticsUtil> logger)
     {
         _client = client;
         _logger = logger;
@@ -33,11 +31,12 @@ public sealed class CloudflareWebAnalyticsUtil : ICloudflareWebAnalyticsUtil
         {
             var requestBody = new Zones_zone_settings_single_request
             {
-                AdditionalData =
+                ZonesZoneSettingsSingleRequestMember1 = new Zones_zone_settings_single_requestMember1
                 {
-                    ["value"] = "on"
+                    Enabled = true
                 }
             };
+
             await client.Zones[zoneId].Settings["rum"].PatchAsync(requestBody, cancellationToken: cancellationToken).NoSync();
             _logger.LogInformation("Successfully enabled RUM for zone {ZoneId}", zoneId);
         }
@@ -56,11 +55,12 @@ public sealed class CloudflareWebAnalyticsUtil : ICloudflareWebAnalyticsUtil
         {
             var requestBody = new Zones_zone_settings_single_request
             {
-                AdditionalData =
+                ZonesZoneSettingsSingleRequestMember1 = new Zones_zone_settings_single_requestMember1
                 {
-                    ["value"] = "off"
+                    Enabled = false
                 }
             };
+
             await client.Zones[zoneId].Settings["rum"].PatchAsync(requestBody, cancellationToken: cancellationToken).NoSync();
             _logger.LogInformation("Successfully disabled RUM for zone {ZoneId}", zoneId);
         }
