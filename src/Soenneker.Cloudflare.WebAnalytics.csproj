@@ -41,6 +41,6 @@
     </ItemGroup>
 
     <ItemGroup>
-        <PackageReference Include="Soenneker.Cloudflare.Utils.Client" Version="4.0.389" />
+        <PackageReference Include="Soenneker.Cloudflare.Utils.Client" Version="4.0.390" />
     </ItemGroup>
 </Project>
