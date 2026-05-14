@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Threading;
 using System.Threading.Tasks;
 using Microsoft.Extensions.Logging;
@@ -29,9 +29,9 @@ public sealed class CloudflareWebAnalyticsUtil : ICloudflareWebAnalyticsUtil
         CloudflareOpenApiClient client = await _client.Get(cancellationToken).NoSync();
         try
         {
-            var requestBody = new Zones_zone_settings_single_request
+            var requestBody = new ZonesZoneSettingsSingleRequest
             {
-                ZonesZoneSettingsSingleRequestMember1 = new Zones_zone_settings_single_requestMember1
+                ZonesZoneSettingsSingleRequestMember1 = new ZonesZoneSettingsSingleRequestMember1
                 {
                     Enabled = true
                 }
@@ -53,9 +53,9 @@ public sealed class CloudflareWebAnalyticsUtil : ICloudflareWebAnalyticsUtil
         CloudflareOpenApiClient client = await _client.Get(cancellationToken).NoSync();
         try
         {
-            var requestBody = new Zones_zone_settings_single_request
+            var requestBody = new ZonesZoneSettingsSingleRequest
             {
-                ZonesZoneSettingsSingleRequestMember1 = new Zones_zone_settings_single_requestMember1
+                ZonesZoneSettingsSingleRequestMember1 = new ZonesZoneSettingsSingleRequestMember1
                 {
                     Enabled = false
                 }
