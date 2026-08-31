@@ -7,7 +7,7 @@
     </PropertyGroup>
 
     <PropertyGroup>
-        <Description>A utility for managing Cloudflare Web analytics settings</Description>
+        <Description>Dependency-injection utilities for enabling or disabling Cloudflare zone-level Real User Monitoring.</Description>
         <Version Condition="'$(BUILD_VERSION)' == ''">4.0.0</Version>
         <Version Condition="'$(BUILD_VERSION)' != ''">$(BUILD_VERSION)</Version>
         <AssemblyName>Soenneker.Cloudflare.WebAnalytics</AssemblyName>

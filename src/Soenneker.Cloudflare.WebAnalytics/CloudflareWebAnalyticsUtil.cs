@@ -11,7 +11,6 @@ using Soenneker.Extensions.Task;
 
 namespace Soenneker.Cloudflare.WebAnalytics;
 
-/// <inheritdoc cref="ICloudflareWebAnalyticsUtil"/>
 public sealed class CloudflareWebAnalyticsUtil : ICloudflareWebAnalyticsUtil
 {
     private readonly ICloudflareClientUtil _client;
