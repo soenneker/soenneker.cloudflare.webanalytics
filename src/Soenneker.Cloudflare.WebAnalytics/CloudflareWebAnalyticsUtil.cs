@@ -31,7 +31,7 @@ public sealed class CloudflareWebAnalyticsUtil : ICloudflareWebAnalyticsUtil
         {
             var requestBody = new ZonesZoneSettingsSingleRequest
             {
-                ZonesZoneSettingsSingleRequestMember1 = new ZonesZoneSettingsSingleRequestMember1
+                ZonesZoneSettingsSingleRequestOneOf1 = new ZonesZoneSettingsSingleRequestOneOf1
                 {
                     Enabled = true
                 }
@@ -55,7 +55,7 @@ public sealed class CloudflareWebAnalyticsUtil : ICloudflareWebAnalyticsUtil
         {
             var requestBody = new ZonesZoneSettingsSingleRequest
             {
-                ZonesZoneSettingsSingleRequestMember1 = new ZonesZoneSettingsSingleRequestMember1
+                ZonesZoneSettingsSingleRequestOneOf1 = new ZonesZoneSettingsSingleRequestOneOf1
                 {
                     Enabled = false
                 }
